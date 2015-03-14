@@ -20,8 +20,8 @@ public class Login extends ActionBarActivity {
      *
      * @param v
      */
+
     public void LoginClickHandler(View v) {
-        Log.v("LoginInClickHandler","Working");
         EditText UserName = (EditText)findViewById(R.id.UserName);
         EditText Password = (EditText)findViewById(R.id.Password);
         if(UserName.getText().length() == 0) {
@@ -38,6 +38,7 @@ public class Login extends ActionBarActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }
+        Log.v("I made it here", "3");
         Intent intent = new Intent(this, ListBikes.class);
         startActivity(intent);
     }
@@ -46,6 +47,7 @@ public class Login extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
     }
 
 

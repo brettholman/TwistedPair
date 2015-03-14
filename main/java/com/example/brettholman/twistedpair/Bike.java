@@ -4,21 +4,15 @@ package com.example.brettholman.twistedpair;
 /**
  * Created by Brett Holman on 3/13/2015.
  */
+
 public class Bike {
     private String brand;
-    private int price;
+    private double price;
     private String model;
-    private String pictureLocation;
+    private BikeColor color;
 
-    Bike() {
-        this.brand = "";
-        this.model = "";
-        this.price = 0;
-        this.pictureLocation = "..";
-    }
-
-    Bike(String _brand, int _price, String _model, String _pictureLocation) {
-        this.pictureLocation = _pictureLocation;
+    public Bike(String _brand, double _price, String _model, BikeColor color) {
+        this.color = color;
         this.price = _price;
         this.brand = _brand;
         this.model = _model;
@@ -30,7 +24,7 @@ public class Bike {
      *
      * @return brand
      */
-    String getBrand() {
+    public String getBrand() {
         return this.brand;
     }
 
@@ -38,7 +32,7 @@ public class Bike {
      *
      * @return model
      */
-    String getModel() {
+    public String getModel() {
         return this.model;
     }
 
@@ -46,17 +40,15 @@ public class Bike {
      *
      * @return location
      */
-    String getPictureLocation() {
-        return this.pictureLocation;
+    public BikeColor getColor() {
+        return this.color;
     }
 
     /**
      *
      * @return price
      */
-    int getPrice() {
+    public double getPrice() {
         return this.price;
     }
-
-
 }

@@ -1,31 +1,42 @@
 package com.example.brettholman.twistedpair;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 
-import java.util.Queue;
-
-
-public class ListBikes extends ActionBarActivity {
-
-    private Queue<Bike> bikes;
-
-    void SetUpList() {
-
-    }
+import java.util.ArrayList;
 
 
-
+public class ListBikes extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.v("1", "1");
         setContentView(R.layout.activity_list_bikes);
-        SetUpList();
-
+        ListOfBikes listOfBikes = new ListOfBikes();
+        ArrayList<String> dummyValuestmp = listOfBikes.getListOfNames();
+        String[] dummyValues = new String[dummyValuestmp.size()];
+        dummyValues = dummyValuestmp.toArray(dummyValues);
+        ArrayList<Bike> bikestmp = listOfBikes.getListOfBikes();
+        Bike[] bikes = new Bike[bikestmp.size()];
+        bikes = bikestmp.toArray(bikes);
+        Log.v("2", "2");
+        setListAdapter(new MyListItemAdapter(this, dummyValues, bikes));
+        Log.v("3", "3");
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(parent.getContext(), ShowDetail.class);
+                intent.putExtra("index", position);
+                startActivity(intent);
+            }
+        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
