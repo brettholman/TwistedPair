@@ -4,5 +4,9 @@
     <string name="app_name">TwistedPair</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="LoginButton">Login</string>
+    <string name="UserName">User Name</string>
+    <string name="Password">Password</string>
+    <string name="title_activity_list_bikes">ListBikes</string>
 
 </resources>

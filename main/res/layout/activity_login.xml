@@ -14,16 +14,21 @@
             android:id="@+id/UserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="@string/UserName"
             />
         <EditText
             android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:hint="@string/Password"
             />
         <Button
             android:id="@+id/Login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/LoginButton"
+            android:onClick="LoginClickHandler"/>
     </LinearLayout>
 
     <LinearLayout
