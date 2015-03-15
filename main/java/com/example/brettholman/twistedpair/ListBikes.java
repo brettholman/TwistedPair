@@ -8,31 +8,45 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * Written By Brett Holman
+ * This class controls the List of Bikes page (pg 2).
+ * All of the bikes are stored in a class names ListOfBikes.
+ * This class would be currently controlling the inventory (if needed)
+ * This is not the most ideal way to go about implementing the idea of a store.
+ * But that would be something I would refactor, if this app was to be enhanced in the future.
+ */
 
 public class ListBikes extends ListActivity {
+    private ListOfBikes listOfBikes = new ListOfBikes();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.v("1", "1");
         setContentView(R.layout.activity_list_bikes);
-        ListOfBikes listOfBikes = new ListOfBikes();
-        ArrayList<String> dummyValuestmp = listOfBikes.getListOfNames();
-        String[] dummyValues = new String[dummyValuestmp.size()];
-        dummyValues = dummyValuestmp.toArray(dummyValues);
-        ArrayList<Bike> bikestmp = listOfBikes.getListOfBikes();
-        Bike[] bikes = new Bike[bikestmp.size()];
-        bikes = bikestmp.toArray(bikes);
-        Log.v("2", "2");
-        setListAdapter(new MyListItemAdapter(this, dummyValues, bikes));
-        Log.v("3", "3");
+
+        // Get the arrayLists into Arrays of their correct class.
+        ArrayList<String> dummyValues = listOfBikes.getListOfNames();
+        String[] Values = new String[dummyValues.size()];
+        Values = dummyValues.toArray(Values);
+        final ArrayList<Bike> bikes = listOfBikes.getListOfBikes();
+        Bike[] bikesToPass = new Bike[bikes.size()];
+        bikesToPass = bikes.toArray(bikesToPass);
+        setListAdapter(new MyListItemAdapter(this, Values, bikesToPass));
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            // Set up the onclick, and bundle the correct data to display.
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(parent.getContext(), ShowDetail.class);
-                intent.putExtra("index", position);
+                Bike curBike = bikes.get(position);
+                intent.putExtra("Color", curBike.getColor());
+                intent.putExtra("Brand", curBike.getBrand());
+                intent.putExtra("Model", curBike.getModel());
+                intent.putExtra("Price", curBike.getPrice());
                 startActivity(intent);
             }
         });

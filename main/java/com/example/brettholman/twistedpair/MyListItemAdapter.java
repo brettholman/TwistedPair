@@ -38,7 +38,7 @@ public class MyListItemAdapter extends ArrayAdapter<String> {
         TextView model = (TextView)rowView.findViewById(R.id.Model);
         TextView brand = (TextView)rowView.findViewById(R.id.Brand);
         ImageView image = (ImageView)rowView.findViewById(R.id.icon);
-        price.setText(Double.toString(bikes[position].getPrice()));
+        price.setText("$" + Double.toString(bikes[position].getPrice()));
         model.setText(bikes[position].getModel());
         brand.setText(bikes[position].getBrand());
         BikeColor color = bikes[position].getColor();

@@ -10,6 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
+/**
+ * Written By Brett Holman
+ * This class is handles the first page.
+ * You will notice that there are basically no requirements for logging in.
+ * The only thing that I thought was necessary (Currently) was to make sure that both fields were not blank.
+ * This class will lead to page two.
+ */
 
 public class Login extends ActionBarActivity {
 

@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Written by Brett Holman
+ * This class controls displaying the information from each bike.
+ * Based off of the intent that was passed in when this was called, I pull data and display that data.
+ */
 
 public class ShowDetail extends ActionBarActivity {
 
@@ -17,13 +22,22 @@ public class ShowDetail extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_detail);
+
+        // Pull the information from the Intent
         Bundle extras = getIntent().getExtras();
-        int index = extras.getInt("index");
-        ListOfBikes lob = new ListOfBikes();
-        Bike bike = lob.getAtIndex(index);
-        Log.v("Working", "SoFar");
+        double Price = extras.getDouble("Price");
+        String Model = extras.getString("Model");
+        String Brand = extras.getString("Brand");
+        BikeColor Color = (BikeColor)extras.getSerializable("Color");
+
+        // Get the different Views
+        TextView price = (TextView)findViewById(R.id.Price);
+        TextView brand = (TextView)findViewById(R.id.ShowDetailBrand);
+        TextView model = (TextView)findViewById(R.id.ShowDetailModel);
         ImageView image = (ImageView)findViewById(R.id.Image);
-        switch(bike.getColor()) {
+
+        // Set the correct values to the different Views.
+        switch(Color) {
             case Red:
                 image.setImageResource(R.drawable.bigredbike);
                 break;
@@ -35,13 +49,11 @@ public class ShowDetail extends ActionBarActivity {
                 break;
             default:
                 image.setImageResource(R.drawable.ic_launcher);
+                break;
         }
-        TextView price = (TextView)findViewById(R.id.Price);
-        price.setText("$"+Double.toString(bike.getPrice()));
-        TextView brand = (TextView)findViewById(R.id.ShowDetailBrand);
-        brand.setText(bike.getBrand());
-        TextView model = (TextView)findViewById(R.id.ShowDetailModel);
-        model.setText(bike.getModel());
+        price.setText("$" + Double.toString(Price));
+        model.setText(Model);
+        brand.setText(Brand);
     }
 
     public void addToCartClickHandler(View v) {

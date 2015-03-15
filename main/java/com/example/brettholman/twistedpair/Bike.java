@@ -3,6 +3,11 @@ package com.example.brettholman.twistedpair;
 
 /**
  * Created by Brett Holman on 3/13/2015.
+ * This is the container for each of the bike's data.
+ * You'll notice that there is no storage of the item's "Description"
+ * I decided to factor that out of each instance, and store it in the Strings.xml file.
+ * If this was to be fully implemented, I would add a way to store a description.
+ *
  */
 
 public class Bike {

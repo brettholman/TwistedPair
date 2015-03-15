@@ -24,23 +24,11 @@
     <LinearLayout
         android:clickable="false"
         android:id="@+id/PriceParent"
-        android:layout_width="50dip"
+        android:layout_width="65dip"
         android:layout_height="fill_parent"
         android:layout_toRightOf="@id/spacer"
-        android:weightSum="2"
+        android:weightSum="1"
         android:orientation="vertical">
-        <TextView
-            android:clickable="false"
-            android:id="@+id/filler"
-            android:typeface="serif"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/icon"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:textSize="12sp"
-            android:layout_weight="1"/>
         <TextView
             android:clickable="false"
             android:id="@+id/Price"
@@ -52,9 +40,10 @@
             android:ellipsize="marquee"
             android:singleLine="true"
             android:text="$$$$"
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
             android:layout_weight="1"/>
-        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:clickable="false"
         android:id="@+id/Brand"

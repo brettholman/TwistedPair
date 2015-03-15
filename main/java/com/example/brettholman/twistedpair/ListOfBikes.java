@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 /**
  * Created by Brett Holman on 3/14/2015.
+ * This class is a container that stores multiple bikes.
+ * From this I am able to populate the second page, and pull the information of the bike that gets selected.
+ * To populate the third page.
  */
 public class ListOfBikes{
     private ArrayList<Bike> listOfBikes;
